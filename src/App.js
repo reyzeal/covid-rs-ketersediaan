@@ -1,24 +1,32 @@
-import logo from './logo.svg';
 import './App.css';
+import Home from "./Components/Home";
+import Footer from "./Components/Footer";
+import {Grid, makeStyles} from "@material-ui/core";
+
+const useStyles = makeStyles((theme) => ({
+    root: {
+        background: theme.palette.background.paper,
+        // margin: "15vh 0 0 0",
+        height: "100%",
+    },
+    footer : {
+        marginTop: "10vh",
+        width: "100%"
+    }
+}))
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+  const classes = useStyles()
+    return (
+    <Grid className={classes.root} container direction="row">
+          <Grid item>
+              <Home/>
+          </Grid>
+        <Grid item className={classes.footer}>
+            <Footer/>
+        </Grid>
+
+    </Grid>
   );
 }
 
